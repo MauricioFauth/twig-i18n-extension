@@ -203,8 +203,8 @@ abstract class IntegrationTestCase extends TestCase
             new RecursiveDirectoryIterator($fixturesDir),
             RecursiveIteratorIterator::LEAVES_ONLY,
         );
-        /** @var SplFileInfo $file */
         foreach ($files as $file) {
+            self::assertInstanceOf(SplFileInfo::class, $file);
             if (! preg_match('/\.test$/', (string) $file)) {
                 continue;
             }
